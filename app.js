@@ -336,7 +336,9 @@ function analyzeReading(spokenText) {
     // Normalize: remove punctuation and extra whitespace
     const cleanOriginal = originalText.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
     const originalWords = cleanOriginal.trim().split(/\s+/);
-    const spokenWords = spokenText.toLowerCase().trim().split(/\s+/);
+    // FIX: Normalize spoken text by removing punctuation as well
+    const cleanSpoken = spokenText.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
+    const spokenWords = cleanSpoken.trim().split(/\s+/);
     
     let correctCount = 0;
     let mistakes = [];
